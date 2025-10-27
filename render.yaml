@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: mugrani-portfolio
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn fixed_projects_website:app"

@@ -98,21 +98,20 @@ def home():
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
             
             body {
-                font-family: 'Arial', sans-serif;
-                line-height: 1.6;
-                color: #333;
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                 min-height: 100vh;
-                direction: {{ 'rtl' if lang == 'ar' else 'ltr' }};
+                color: #333;
+                line-height: 1.6;
             }
 
             .container {
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 20px;
+                padding: 0 20px;
             }
 
             /* Header Styles */
@@ -120,7 +119,7 @@ def home():
                 background: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(10px);
                 padding: 1rem 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 2px 20px rgba(0,0,0,0.1);
                 position: fixed;
                 width: 100%;
                 top: 0;
@@ -128,35 +127,40 @@ def home():
             }
 
             .nav-container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 20px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
             }
 
             .logo {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
                 font-weight: bold;
-                color: #333;
+                color: #667eea;
+                text-decoration: none;
             }
 
             .nav-links {
                 display: flex;
                 list-style: none;
                 gap: 2rem;
+                align-items: center;
             }
 
             .nav-links a {
                 text-decoration: none;
                 color: #333;
-                font-weight: 500;
+                font-weight: 600;
                 transition: color 0.3s;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
             }
 
             .nav-links a:hover {
                 color: #667eea;
+                background: rgba(102, 126, 234, 0.1);
             }
 
             .language-switcher {
@@ -165,111 +169,171 @@ def home():
             }
 
             .lang-btn {
-                background: #667eea;
+                background: linear-gradient(135deg, #667eea, #764ba2);
                 color: white;
                 border: none;
-                padding: 0.4rem 0.8rem;
-                border-radius: 5px;
+                padding: 0.5rem 1rem;
+                border-radius: 25px;
                 cursor: pointer;
                 text-decoration: none;
-                font-size: 0.8rem;
-                transition: background 0.3s;
+                font-size: 0.9rem;
+                transition: all 0.3s;
+                font-weight: 500;
             }
 
             .lang-btn:hover {
-                background: #5a6fd8;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
             }
 
             /* Hero Section */
             .hero {
                 background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
                 color: white;
-                padding: 120px 0 80px;
+                padding: 150px 0 100px;
                 text-align: center;
-                margin-top: 60px;
+                margin-top: 80px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.1"><polygon points="1000,100 1000,0 0,100"/></svg>');
+                background-size: cover;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
+                font-size: 3.5rem;
+                margin-bottom: 1.5rem;
+                font-weight: 700;
+                position: relative;
             }
 
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 margin-bottom: 1rem;
                 opacity: 0.9;
+                position: relative;
+            }
+
+            .hero .slogan {
+                font-size: 1.1rem;
+                font-style: italic;
+                opacity: 0.8;
             }
 
             /* Sections */
             .section {
                 background: white;
-                margin: 2rem 0;
-                padding: 3rem;
-                border-radius: 15px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin: 3rem 0;
+                padding: 4rem 0;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
 
             .section h2 {
                 color: #333;
-                margin-bottom: 2rem;
+                margin-bottom: 3rem;
                 text-align: center;
-                font-size: 2rem;
+                font-size: 2.5rem;
+                font-weight: 700;
             }
 
             /* Services Grid */
             .services-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
                 gap: 2rem;
                 margin-top: 2rem;
             }
 
             .service-card {
-                background: #f8f9fa;
-                padding: 2rem;
-                border-radius: 10px;
+                background: linear-gradient(135deg, #f8f9fa, #ffffff);
+                padding: 2.5rem;
+                border-radius: 15px;
                 text-align: center;
-                transition: transform 0.3s;
+                transition: all 0.3s ease;
                 border: 1px solid #e9ecef;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .service-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(135deg, #667eea, #764ba2);
             }
 
             .service-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             }
 
             .service-icon {
-                font-size: 3rem;
-                margin-bottom: 1rem;
+                font-size: 4rem;
+                margin-bottom: 1.5rem;
+                display: block;
             }
 
             .service-card h3 {
                 color: #333;
                 margin-bottom: 1rem;
-                font-size: 1.3rem;
+                font-size: 1.5rem;
+                font-weight: 600;
             }
 
             .service-card p {
                 color: #666;
-                line-height: 1.6;
+                line-height: 1.7;
+                font-size: 1rem;
             }
 
             /* Projects Section */
             .project-card {
-                background: #f8f9fa;
+                background: linear-gradient(135deg, #f8f9fa, #ffffff);
                 padding: 2rem;
-                border-radius: 10px;
+                border-radius: 15px;
                 text-align: center;
-                margin: 1rem 0;
+                margin: 2rem auto;
+                max-width: 600px;
+                border: 1px solid #e9ecef;
+            }
+
+            .project-card h3 {
+                color: #333;
+                margin-bottom: 1rem;
+                font-size: 1.5rem;
+            }
+
+            .project-card p {
+                color: #666;
+                line-height: 1.6;
             }
 
             /* Contact Section */
             .contact-info {
                 text-align: center;
-                padding: 2rem;
-                background: #f8f9fa;
-                border-radius: 10px;
+                padding: 3rem;
+                background: linear-gradient(135deg, #f8f9fa, #ffffff);
+                border-radius: 15px;
+                margin: 2rem auto;
+                max-width: 600px;
+                border: 1px solid #e9ecef;
+            }
+
+            .contact-info p {
                 margin: 1rem 0;
+                font-size: 1.1rem;
             }
 
             /* Responsive */
@@ -279,20 +343,45 @@ def home():
                 }
                 
                 .hero h1 {
-                    font-size: 2rem;
+                    font-size: 2.5rem;
+                }
+                
+                .hero {
+                    padding: 120px 0 80px;
+                    margin-top: 70px;
                 }
                 
                 .section {
-                    padding: 2rem 1rem;
+                    padding: 3rem 1rem;
+                    margin: 2rem 0;
                 }
                 
                 .services-grid {
                     grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+                
+                .service-card {
+                    padding: 2rem;
                 }
                 
                 .language-switcher {
                     flex-direction: column;
-                    gap: 0.3rem;
+                    gap: 0.5rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero h1 {
+                    font-size: 2rem;
+                }
+                
+                .section h2 {
+                    font-size: 2rem;
+                }
+                
+                .service-card {
+                    padding: 1.5rem;
                 }
             }
         </style>
@@ -301,7 +390,7 @@ def home():
         <!-- Header -->
         <header>
             <div class="nav-container">
-                <div class="logo">{{ t.title }}</div>
+                <a href="#home" class="logo">{{ t.title }}</a>
                 <div style="display: flex; align-items: center; gap: 2rem;">
                     <ul class="nav-links">
                         <li><a href="#home">{{ t.home }}</a></li>
@@ -323,7 +412,7 @@ def home():
             <div class="container">
                 <h1>{{ t.welcome }}</h1>
                 <p>{{ t.tagline }}</p>
-                <p>"{{ t.slogan }}"</p>
+                <p class="slogan">"{{ t.slogan }}"</p>
             </div>
         </section>
 
@@ -375,8 +464,8 @@ def home():
             <div class="container">
                 <h2>{{ t.projects }}</h2>
                 <div class="project-card">
-                    <h3>Company Website</h3>
-                    <p>This professional website developed with Python Flask - supporting multiple languages</p>
+                    <h3>موقع الشركة</h3>
+                    <p>تم تطوير هذا الموقع الاحترافي باستخدام Python Flask - يدعم ثلاث لغات مختلفة</p>
                 </div>
             </div>
         </section>
@@ -388,6 +477,7 @@ def home():
                 <div class="contact-info">
                     <p><strong>Email:</strong> sksomugrani07@gmail.com</p>
                     <p><strong>البريد الإلكتروني:</strong> sksomugrani07@gmail.com</p>
+                    <p><strong>Phone / الهاتف:</strong> +46 123 456 789</p>
                 </div>
             </div>
         </section>
